@@ -72,7 +72,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-2 group">
           <GiKnifeFork className="text-gold-DEFAULT text-2xl group-hover:rotate-12 transition-transform duration-300" />
           <span className="font-display text-2xl font-bold text-gold-gradient">
-            
+            Savoria
           </span>
         </Link>
 
