@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Custom Scrollbar ─────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #f1c40f; }
+
+/* ─── Base ─────────────────────────────────────────── */
+* { scroll-behavior: smooth; }
+body {
+  background-color: #0a0a0a;
+  color: #f5f5f0;
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── Glass Morphism ───────────────────────────────── */
+.glass {
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Gold Gradient Text ───────────────────────────── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #f1c40f 40%, #d4af37 70%, #b8860b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(90deg, #b8860b 0%, #f1c40f 25%, #d4af37 50%, #f1c40f 75%, #b8860b 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── Video Overlay ────────────────────────────────── */
+.video-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.3) 0%,
+    rgba(10, 10, 10, 0.5) 40%,
+    rgba(10, 10, 10, 0.85) 100%
+  );
+}
+
+/* ─── Gold Border Gradient ─────────────────────────── */
+.border-gold {
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.border-gold-glow {
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1), inset 0 0 20px rgba(212, 175, 55, 0.02);
+}
+
+/* ─── Menu Card Hover ──────────────────────────────── */
+.menu-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.menu-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(192, 57, 43, 0.2), 0 0 0 1px rgba(212, 175, 55, 0.3);
+}
+
+/* ─── Button Styles ────────────────────────────────── */
+.btn-gold {
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #0a0a0a;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+.btn-gold:hover::before { left: 100%; }
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.btn-red {
+  background: linear-gradient(135deg, #c0392b, #96281b);
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-red:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(192, 57, 43, 0.4);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  color: #d4af37;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: #d4af37;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+/* ─── Nav Link Underline ───────────────────────────── */
+.nav-link {
+  position: relative;
+  color: rgba(245,245,240,0.8);
+  transition: color 0.3s;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: linear-gradient(90deg, #d4af37, #f1c40f);
+  transition: width 0.3s ease;
+}
+.nav-link:hover { color: #d4af37; }
+.nav-link:hover::after { width: 100%; }
+.nav-link.active { color: #d4af37; }
+.nav-link.active::after { width: 100%; }
+
+/* ─── Category Pills ───────────────────────────────── */
+.category-pill {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.category-pill.active {
+  background: linear-gradient(135deg, #c0392b, #96281b);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(192, 57, 43, 0.4);
+}
+.category-pill:not(.active):hover {
+  border-color: rgba(212,175,55,0.5);
+  color: #d4af37;
+}
+
+/* ─── Input Styles ─────────────────────────────────── */
+.input-dark {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,175,55,0.2);
+  color: #f5f5f0;
+  transition: all 0.3s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+.input-dark:focus {
+  outline: none;
+  border-color: rgba(212,175,55,0.6);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
+}
+.input-dark::placeholder { color: rgba(245,245,240,0.3); }
+
+/* ─── Section Title ────────────────────────────────── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent);
+}
+
+/* ─── Star Rating ──────────────────────────────────── */
+.star-filled { color: #d4af37; }
+.star-empty { color: rgba(212,175,55,0.25); }
+
+/* ─── Floating Animation ───────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+.animate-float { animation: float 4s ease-in-out infinite; }
+
+/* ─── Grain Texture Overlay ────────────────────────── */
+.grain-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+}
+
+/* ─── Page Transition ──────────────────────────────── */
+.page-enter { opacity: 0; transform: translateY(20px); }
+.page-enter-active {
+  opacity: 1; transform: translateY(0);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+/* ─── Status Badge ─────────────────────────────────── */
+.status-preparing { background: rgba(212,175,55,0.15); color: #d4af37; border: 1px solid rgba(212,175,55,0.3); }
+.status-ready     { background: rgba(39,174,96,0.15);  color: #27ae60; border: 1px solid rgba(39,174,96,0.3); }
+.status-delivered { background: rgba(52,152,219,0.15); color: #3498db; border: 1px solid rgba(52,152,219,0.3); }
+.status-pending   { background: rgba(192,57,43,0.15);  color: #e74c3c; border: 1px solid rgba(192,57,43,0.3); }
+
+/* ─── Dashboard Sidebar ────────────────────────────── */
+.sidebar-link {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-radius: 8px;
+  color: rgba(245,245,240,0.6);
+  transition: all 0.25s ease;
+  font-size: 14px; font-weight: 500;
+  cursor: pointer;
+}
+.sidebar-link:hover {
+  background: rgba(212,175,55,0.08);
+  color: #d4af37;
+}
+.sidebar-link.active {
+  background: rgba(192,57,43,0.15);
+  color: #e74c3c;
+  border-right: 2px solid #c0392b;
+}
+
+/* ─── Stat Card ────────────────────────────────────── */
+.stat-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.1);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+.stat-card:hover {
+  border-color: rgba(212,175,55,0.3);
+  background: rgba(255,255,255,0.05);
+}
+
+/* ─── Toast Override ───────────────────────────────── */
+.toast-dark {
+  background: #1a1a1a !important;
+  color: #f5f5f0 !important;
+  border: 1px solid rgba(212,175,55,0.2) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
